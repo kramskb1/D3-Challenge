@@ -27,4 +27,5 @@ var xLinearScale = d3.scaleLinear()
 var yLinearScale = d3.scaleLinear()
     .domain([0, d3.max(myData, d => d.healthcare)*1.1])
     .range([height, 0]);
-
+var bottomAxis = d3.axisBottom(xLinearScale);
+var leftAxis = d3.axisLeft(yLinearScale);
