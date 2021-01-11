@@ -19,7 +19,7 @@ d3.csv("/assets/data/data.csv").then(function(myData) {
     myData.forEach(function(xdata) {
         xdata.poverty = +xdata.poverty;
         xdata.healthcare = +xdata.healthcare;
-    })});
+    });
 var xLinearScale = d3.scaleLinear()
     .domain([d3.min(myData, d=>d.poverty)*0.9,
      d3.max(myData, d => d.poverty)*1.1])
@@ -44,7 +44,15 @@ chartGroup.selectAll("circle")
     .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", 12)
     .attr("fill", "blue")
-    .attr("opacity", ".6");
+    .attr("opacity", ".6")
+    .on("mouseover", function(data, index) {
+        toolTip.show(data,this);
+        d3.select(this).style("stroke","#323232")
+      .style("stroke-width","10")
+    })
+    .on("mouseout", function(data, index) {
+        toolTip.hide(data,this);
+    })
 chartGroup.selectAll("text.text-circles")
     .data(myData)
     .enter()
@@ -70,5 +78,14 @@ chartGroup.append("text")
     .attr("dy", "1em")
     .classed("aText", true)
     .text("Poverty Rate (%)");
+
+var toolTip = d3.tip()
+    .attr("class", "d3-tip")
+    .offset([80, -20])
+    .html(function(d) {
+      return (`${d.state}<br>poverty: ${d.poverty}<br>healthcare: ${d.healthcare}`);
+    });
+chartGroup.call(toolTip);
     
 
+});
