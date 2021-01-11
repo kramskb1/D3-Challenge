@@ -20,3 +20,8 @@ d3.csv("/assets/data/data.csv").then(function(myData) {
         xdata.poverty = +xdata.poverty;
         xdata.healthcare = +xdata.healthcare;
     })});
+var xLinearScale = d3.scaleLinear()
+    .domain([d3.min(myData, d=>d.poverty)*0.9,
+     d3.max(myData, d => d.poverty)*1.1])
+    .range([0, width]);
+
