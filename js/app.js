@@ -57,3 +57,18 @@ chartGroup.selectAll("text.text-circles")
     .attr("text-anchor","middle")
     .attr("font-size","12px")
     .attr("fill", "white");
+chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 30 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .classed("aText", true)
+    .text("Lacks Healthcare (%)");
+chartGroup.append("text")
+    .attr("y", height + margin.bottom/2 - 10)
+    .attr("x", width / 2)
+    .attr("dy", "1em")
+    .classed("aText", true)
+    .text("Poverty Rate (%)");
+    
+
