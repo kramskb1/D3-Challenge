@@ -30,9 +30,18 @@ var yLinearScale = d3.scaleLinear()
 var bottomAxis = d3.axisBottom(xLinearScale);
 var leftAxis = d3.axisLeft(yLinearScale);
 chartGroup.append("g")
-.attr("transform", `translate(0, ${height})`)
-.style("font-size", "16px")
-.call(bottomAxis);
+    .attr("transform", `translate(0, ${height})`)
+    .style("font-size", "16px")
+    .call(bottomAxis);
 chartGroup.append("g")
-        .style("font-size", "16px")
-        .call(leftAxis);
+    .style("font-size", "16px")
+    .call(leftAxis);
+chartGroup.selectAll("circle")
+    .data(myData)
+    .enter()
+    .append("circle")
+    .attr("cx", d => xLinearScale(d.poverty))
+    .attr("cy", d => yLinearScale(d.healthcare))
+    .attr("r", 12)
+    .attr("fill", "blue")
+    .attr("opacity", ".6");
