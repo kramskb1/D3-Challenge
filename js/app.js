@@ -19,4 +19,4 @@ d3.csv("/assets/data/data.csv").then(function(myData) {
     myData.forEach(function(xdata) {
         xdata.poverty = +xdata.poverty;
         xdata.healthcare = +xdata.healthcare;
-    });
+    })});
