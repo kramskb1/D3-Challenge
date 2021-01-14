@@ -1,1 +1,4 @@
-	A scatter plot was created between healthcare and poverty.
+	A scatter plot was created between healthcare and poverty. A scatter plot was created that represented each state with circle elements. The d3.csv function was used. State abbreviations were included in the circles. The axes and labels were created and situated to the left and bottom of the chart. 
+	After opening my index.html file with live server, the scatter plot is viewed. The percentage of poverty rate is on the x axis. The percentage who lack healthcare is on the y axis. Hovering over each state’s circle gives you the state name, the poverty rate, and the percentage who lack healthcare. The Latin text is displayed underneath the scatter plot.
+	I used the mouseout function and the mouseover function in my app.js file. The mouseout function occurs when a mouse pointer leaves an element. The mouseover function occurs when a mouse pointer comes over an element. 
+
