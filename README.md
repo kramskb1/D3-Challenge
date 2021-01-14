@@ -1,1 +1,1 @@
-# D3-Challenge
+	A scatter plot was created between healthcare and poverty.
